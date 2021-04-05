@@ -1,11 +1,15 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
+import ItemTarea from './ItemTarea';
 
-const ListaTarea = () => {
+const ListaTarea = (props) => {
     return (
         <ul className="list-group">
-            <li className='list-group-item'>Lorem ipsum dolor sit amet.</li>
-            <li className='list-group-item'>Lorem ipsum dolor sit amet.</li>
-            <li className='list-group-item'>Lorem ipsum dolor sit amet.</li>
+            {/* para escribir codigo JS va entre {} */}
+            {
+                // MAP recorre cada elem del arreglo y llama a la funcion ItemTarea, para armar la lista de tareas
+                // key hace que cada componente ItemTarea sea unico
+                props.arregloTareas.map((valor,indice)=><ItemTarea key={indice} dato={valor}></ItemTarea>)
+            }
         </ul>
     );
 };

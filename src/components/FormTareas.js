@@ -32,9 +32,10 @@ const FormTareas = () => {
     };
 
     return (
+        /* =========== aqui puedo escribir logia JS pero NO SE USA NORMALMENTE=========== */
     <Fragment>
-    //=========== aqui puedo escribir logia JS pero NO SE USA NORMALMENTE===========
-    <div className="container d-flex justify-content-center">
+    
+    <section className="container d-flex justify-content-center">
         {/*======== codigo HTML (dentro de la primera etiqueta HTML: div) ===========*/}
         <form className="w-75 my-5" onSubmit={handleSubmit}>
             <div className="mb-3 d-flex">
@@ -52,9 +53,10 @@ const FormTareas = () => {
             </div>
         </form>
         {/* ========== fin codigo HTML ================================= */}
-    </div>
+    </section>
     <section className='container w-75 my-5'>
-        <ListaTarea></ListaTarea>
+        {/* arregloTareas es el props */}
+        <ListaTarea arregloTareas={tareas}></ListaTarea>
     </section>
     </Fragment>
     );
