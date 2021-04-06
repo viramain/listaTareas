@@ -31,6 +31,12 @@ const FormTareas = () => {
         setTareaIndividual('');
     };
 
+    const borrarTarea = (nombre) =>{
+        // nombre tiene la tarea que quiero borrar
+        let arregloModificado = tareas.filter((dato)=>dato!==nombre);
+        setTareas(arregloModificado);
+    }
+
     return (
         /* =========== aqui puedo escribir logia JS pero NO SE USA NORMALMENTE=========== */
     <Fragment>
@@ -56,7 +62,7 @@ const FormTareas = () => {
     </section>
     <section className='container w-75 my-5'>
         {/* arregloTareas es el props */}
-        <ListaTarea arregloTareas={tareas}></ListaTarea>
+        <ListaTarea arregloTareas={tareas} borrarTarea={borrarTarea}></ListaTarea>
     </section>
     </Fragment>
     );
