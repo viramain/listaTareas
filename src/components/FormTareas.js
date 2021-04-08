@@ -1,15 +1,27 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect} from "react";
 import ListaTarea from "./ListaTarea";
 
 const FormTareas = () => {
   //========= ZONA de logica de JS, antes del return()============
+  //---- definicion de variables
+    let tareasLocalStorage = JSON.parse(localStorage.getItem('arregloTareas'));
+    if(!tareasLocalStorage){
+        tareasLocalStorage=[];
+    }
 
     // ...... creamos los STATE ........
     // creo state "Tareas" que es un arreglo, y setTareas es la funcion que actualizara las tareas
-    // useState([]) inicializa el array vacio
-    const [tareas, setTareas] = useState([]);
+    const [tareas, setTareas] = useState(tareasLocalStorage);
     // defino otro state que se llamará "tareaIndividual" que vaya tipeando, inicializo vacia
     const [tareaIndividual, setTareaIndividual] = useState("");
+
+    //---- CICLO DE VIDA otro hock: useEfect ----
+    useEffect(()=>{
+        // aqui va la logica que quiero ejecutar en montaje y actualizacion
+        console.log("ejecutando el ciclo del vida")
+        localStorage.setItem('arregloTareas',JSON.stringify(tareas));
+    },[tareas]);
+
     
     //..... fin creación states ......
 
